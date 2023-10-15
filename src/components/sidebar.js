@@ -12,13 +12,13 @@ const Sidebar = () => {
                         }>Home</NavLink>
                     </li>
                     <li>
-                    <NavLink to='/leader-board'
+                    <NavLink to='/leaderboard'
                         className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                         }>Leader board</NavLink>
                     </li>
                     <li>
-                    <NavLink to='/new-question'
+                    <NavLink to='/add'
                         className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                         }>New question</NavLink>

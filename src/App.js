@@ -39,7 +39,7 @@ function App({ dispatch }) {
             }
           />
           <Route
-            path="/leader-board"
+            path="/leaderboard"
             element={
               <PageTemplate>
                 <Leaderboard />
@@ -47,7 +47,7 @@ function App({ dispatch }) {
             }
           />
           <Route
-            path="/new-question"
+            path="/add"
             element={
               <PageTemplate>
                 <NewQuestion />
@@ -55,7 +55,7 @@ function App({ dispatch }) {
             }
           />
           <Route
-            path="/questions/:id"
+            path="/questions/:question_id"
             element={
               <PageTemplate>
                 <DetailQuestion />
