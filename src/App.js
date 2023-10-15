@@ -1,25 +1,85 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleInitialData } from "./actions/sharedActions";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
+import PageTemplate from "./components/pageTemplate";
+import Leaderboard from "./components/leaderboard";
+import NewQuestion from "./components/newQuestion";
+import DetailQuestion from "./components/detailQuestion";
+import BadRequest from "./components/badRequest";
+
+function App({ dispatch }) {
+  useEffect(() => {
+    dispatch(handleInitialData());
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <PageTemplate>
+                <Dashboard />
+              </PageTemplate>
+            }
+          />
+          <Route path="/login" exact element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PageTemplate>
+                <Dashboard />
+              </PageTemplate>
+            }
+          />
+          <Route
+            path="/leader-board"
+            element={
+              <PageTemplate>
+                <Leaderboard />
+              </PageTemplate>
+            }
+          />
+          <Route
+            path="/new-question"
+            element={
+              <PageTemplate>
+                <NewQuestion />
+              </PageTemplate>
+            }
+          />
+          <Route
+            path="/questions/:id"
+            element={
+              <PageTemplate>
+                <DetailQuestion />
+              </PageTemplate>
+            }
+          />
+          <Route
+            path="/400"
+            element={
+              <PageTemplate>
+                <BadRequest />
+              </PageTemplate>
+            }
+          />
+        </Routes>
+      </main>
+
+      <footer>
+        <p>&copy; 2023 Employee Project</p>
+      </footer>
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = () => ({});
+
+export default connect(mapStateToProps)(App);

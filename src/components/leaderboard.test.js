@@ -1,25 +1,25 @@
 import { render } from "@testing-library/react";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./stores/store";
-import { loginSuccess } from "./actions/authActions";
+import { BrowserRouter } from "react-router-dom";
+import store from "../stores/store";
+import Leaderboard from "./leaderboard";
+import { loginSuccess } from "../actions/authActions";
 
-describe("App", () => {
-  it("should return Login page when user not login", () => {
+describe("LeaderBoard", () => {
+  it("Render a snapshot for LeaderBoard use renderer", async () => {
     const component = render(
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <Leaderboard />
         </BrowserRouter>
       </Provider>
     );
-    const heading = component.getByTestId("login-page");
-    expect(heading).toBeInTheDocument();
+    expect(component).toBeDefined();
+    expect(component).toMatchSnapshot();
   });
 
-  it("should return Dashboard page when user logged in", () => {
-    store.dispatch(
+  it("should load success LeaderBoard page", async () => {
+    await store.dispatch(
       loginSuccess({
         sarahedo: {
           id: "sarahedo",
@@ -40,11 +40,11 @@ describe("App", () => {
     const component = render(
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <Leaderboard />
         </BrowserRouter>
       </Provider>
     );
-    const heading = component.getByTestId("logout-user");
+    const heading = component.getByTestId("leaderboard-page");
     expect(heading).toBeInTheDocument();
   });
 });
