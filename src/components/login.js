@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = ({ dispatch, isAuthenticated, loginError }) => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("user");
-  const [password, setPassword] = useState("password");
+  const [username, setUsername] = useState("tylermcginnis");
+  const [password, setPassword] = useState("abc321");
   useEffect(() => {
     checkRedirect(isAuthenticated);
   });
