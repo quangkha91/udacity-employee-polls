@@ -12,10 +12,10 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
   const [isVotedOptionTwo, setIsVotedOptionTwo] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
   const navigate = useNavigate();
-  let { id } = useParams();
+  let { question_id } = useParams();
 
   useEffect(() => {
-    let question = Object.values(questions).find((q) => q.id === id);
+    let question = Object.values(questions).find((q) => q.id === question_id);
     if (question) {
       let author = Object.values(users).find((u) => u.id === question.author);
       let isVotedOne = question?.optionOne.votes.includes(loginUser.id);
@@ -27,7 +27,7 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
       setIsVotedOptionTwo(isVotedTwo);
       setHasVoted(isVoted);
     }
-  },[questions, id, users, loginUser.id, isVotedOptionOne, isVotedOptionTwo]);
+  },[questions, question_id, users, loginUser.id, isVotedOptionOne, isVotedOptionTwo]);
 
   const handleOptionOne = () => {
     dispatch(handleUpdateAnswer(question.id, "optionOne"));
