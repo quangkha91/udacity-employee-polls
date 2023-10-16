@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Navigate } from "react-router-dom";
 import noAvailable from "../icons/noAvailable.png";
 import { useEffect, useState } from "react";
 import { handleUpdateAnswer } from "../actions/questionActions";
@@ -11,6 +11,7 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
   const [isVotedOptionOne, setIsVotedOptionOne] = useState(false);
   const [isVotedOptionTwo, setIsVotedOptionTwo] = useState(false);
   const [hasVoted, setHasVoted] = useState(false);
+  const [isBadRequest, setIsBadRequest] = useState(false);
   const navigate = useNavigate();
   let { question_id } = useParams();
 
@@ -26,8 +27,18 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
       setIsVotedOptionOne(isVotedOne);
       setIsVotedOptionTwo(isVotedTwo);
       setHasVoted(isVoted);
+    } else {
+      setIsBadRequest(true);
     }
-  },[questions, question_id, users, loginUser.id, isVotedOptionOne, isVotedOptionTwo]);
+  }, [
+    questions,
+    question_id,
+    users,
+    loginUser.id,
+    isVotedOptionOne,
+    isVotedOptionTwo,
+    isBadRequest,
+  ]);
 
   const handleOptionOne = () => {
     dispatch(handleUpdateAnswer(question.id, "optionOne"));
@@ -39,6 +50,9 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
     navigate("/");
   };
 
+  if (isBadRequest) {
+    return <Navigate to="/404" />;
+  }
   return (
     <div>
       <h1 className="title">Poll by: {author?.id}</h1>
