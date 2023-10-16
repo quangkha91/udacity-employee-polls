@@ -10,6 +10,7 @@ import PageTemplate from "./components/pageTemplate";
 import Leaderboard from "./components/leaderboard";
 import NewQuestion from "./components/newQuestion";
 import DetailQuestion from "./components/detailQuestion";
+import BadRequest from "./components/badRequest";
 
 function App({ dispatch }) {
   useEffect(() => {
@@ -59,6 +60,12 @@ function App({ dispatch }) {
               <PageTemplate>
                 <DetailQuestion />
               </PageTemplate>
+            }
+          />
+          <Route
+            path="/404"
+            element={
+                <BadRequest />
             }
           />
         </Routes>
