@@ -22,7 +22,7 @@ Object {
             class="login-form-group"
           >
             <label
-              for="uname"
+              for="username"
             >
               Username:
             </label>
@@ -82,7 +82,7 @@ Object {
           class="login-form-group"
         >
           <label
-            for="uname"
+            for="username"
           >
             Username:
           </label>

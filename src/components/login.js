@@ -40,7 +40,7 @@ const Login = ({ dispatch, isAuthenticated, loginError }) => {
         <h2 className="title">Login</h2>
         <hr className="title-line" />
         <div className="login-form-group">
-          <label htmlFor="uname">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             name="username"
             id="username"
