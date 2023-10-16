@@ -22,17 +22,16 @@ Object {
             class="login-form-group"
           >
             <label
-              for="username"
+              for="uname"
             >
               Username:
             </label>
             <input
-              data-testid="username"
               id="username"
               name="username"
+              placeholder="Enter Username"
               required=""
-              type="text"
-              value="user"
+              value="tylermcginnis"
             />
           </div>
           <div
@@ -44,19 +43,18 @@ Object {
               Password:
             </label>
             <input
-              data-testid="password"
               id="password"
               name="password"
+              placeholder="Enter Password"
               required=""
               type="password"
-              value="password"
+              value="abc321"
             />
           </div>
           <div
             class="login-form-group"
           >
             <button
-              data-testid="submit"
               type="submit"
             >
               Login
@@ -84,17 +82,16 @@ Object {
           class="login-form-group"
         >
           <label
-            for="username"
+            for="uname"
           >
             Username:
           </label>
           <input
-            data-testid="username"
             id="username"
             name="username"
+            placeholder="Enter Username"
             required=""
-            type="text"
-            value="user"
+            value="tylermcginnis"
           />
         </div>
         <div
@@ -106,19 +103,18 @@ Object {
             Password:
           </label>
           <input
-            data-testid="password"
             id="password"
             name="password"
+            placeholder="Enter Password"
             required=""
             type="password"
-            value="password"
+            value="abc321"
           />
         </div>
         <div
           class="login-form-group"
         >
           <button
-            data-testid="submit"
             type="submit"
           >
             Login

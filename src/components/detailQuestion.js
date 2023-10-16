@@ -66,7 +66,7 @@ const DetailQuestion = ({ dispatch, loginUser, questions, users }) => {
             <p className="title">{question?.optionOne.text}</p>
             {!hasVoted && <p>Click</p>}
             {hasVoted && (
-              <p className="text-xs">
+              <p>
                 Votes: {question?.optionOne.votes.length} (
                 {calculatePercentage("opOne", question)})
               </p>

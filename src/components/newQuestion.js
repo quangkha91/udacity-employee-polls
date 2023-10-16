@@ -30,37 +30,33 @@ const NewQuestion = ({ dispatch }) => {
       <hr className="title-line" />
       <form onSubmit={onHandleSubmit}>
         <div className="form-group">
-          <label htmlFor="firstOption" data-testid="firstOptionLabel">
-            First Option
-          </label>
+          <label htmlFor="firstOption">First Option</label>
           <input
-            value={firstOption}
-            onChange={onChangeFirstOption}
             type="text"
             name="firstOption"
             id="firstOption"
-            data-testid="firstOption"
+            placeholder="Enter First Option"
             required
+            value={firstOption}
+            onChange={onChangeFirstOption}
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="secondOption" data-testid="secondOptionLabel">
-            Second Option
-          </label>
+          <label htmlFor="secondOption">Second Option</label>
           <input
-            value={secondOption}
-            onChange={onChangeSecondOption}
             type="text"
             name="secondOption"
             id="secondOption"
-            data-testid="secondOption"
+            placeholder="Enter Second Option"
             required
+            value={secondOption}
+            onChange={onChangeSecondOption}
           />
         </div>
 
         <div className="form-group">
-          <button type="submit" data-testid="submit-poll">
+          <button type="submit">
             Submit
           </button>
         </div>
@@ -69,5 +65,4 @@ const NewQuestion = ({ dispatch }) => {
   );
 };
 
-const mapStateToProps = () => ({});
-export default connect(mapStateToProps)(NewQuestion);
+export default connect()(NewQuestion);

@@ -40,38 +40,37 @@ const Login = ({ dispatch, isAuthenticated, loginError }) => {
         <h2 className="title">Login</h2>
         <hr className="title-line" />
         <div className="login-form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="uname">Username:</label>
           <input
-            value={username}
-            onChange={onChangeUsername}
-            type="text"
             name="username"
             id="username"
-            data-testid="username"
+            placeholder="Enter Username"
+            value={username}
+            onChange={onChangeUsername}
             required
           />
         </div>
         <div className="login-form-group">
           <label htmlFor="password">Password:</label>
           <input
-            value={password}
-            onChange={onChangePassword}
             type="password"
             name="password"
             id="password"
-            data-testid="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={onChangePassword}
             required
           />
         </div>
         {loginError && (
           <div className="login-form-group">
-            <p className="error-message" data-testid="login-error">{loginError}</p>
+            <p className="error-message" data-testid="login-error">
+              {loginError}
+            </p>
           </div>
         )}
         <div className="login-form-group">
-          <button type="submit" data-testid="submit">
-            Login
-          </button>
+          <button type="submit">Login</button>
         </div>
       </form>
     </div>
